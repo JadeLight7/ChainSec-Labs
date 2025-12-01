@@ -1,0 +1,20 @@
+{
+  "name": "supply-chain-system",
+  "version": "1.0.0",
+  "description": "区块链供应链溯源系统",
+  "scripts": {
+    "test": "hardhat test",
+    "test:unit": "hardhat test --grep '单元测试'",
+    "test:integration": "hardhat test --grep '集成测试'",
+    "test:performance": "hardhat test --grep '性能测试'",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "clean": "hardhat clean && rm -rf test-reports cache artifacts",
+    "export-abi": "node scripts/exportABI.js",
+    "setup": "npm run deploy && npm run export-abi"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.4"
+  }
+}

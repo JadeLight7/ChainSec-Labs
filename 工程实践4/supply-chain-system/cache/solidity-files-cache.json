@@ -1,0 +1,151 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/0xlight/Desktop/工程实践/code/supply-chain-system/contracts/ProductRegistry.sol": {
+      "lastModificationDate": 1764574379773,
+      "contentHash": "88dbc338e2c85445b6518a83040a33fc",
+      "sourceName": "contracts/ProductRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./RoleManager.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "ProductRegistry"
+      ]
+    },
+    "/Users/0xlight/Desktop/工程实践/code/supply-chain-system/contracts/RoleManager.sol": {
+      "lastModificationDate": 1764574379771,
+      "contentHash": "3e55aefe01e81ca10f4e8fd5ef75d0be",
+      "sourceName": "contracts/RoleManager.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "RoleManager"
+      ]
+    },
+    "/Users/0xlight/Desktop/工程实践/code/supply-chain-system/contracts/SupplyChain.sol": {
+      "lastModificationDate": 1764574379774,
+      "contentHash": "b7b66c97872dae6821c5f1b9e0e2757b",
+      "sourceName": "contracts/SupplyChain.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./RoleManager.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "SupplyChain"
+      ]
+    },
+    "/Users/0xlight/Desktop/工程实践/code/supply-chain-system/contracts/QualityControl.sol": {
+      "lastModificationDate": 1764574379776,
+      "contentHash": "3c046205d5218285997dca528c59d086",
+      "sourceName": "contracts/QualityControl.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./RoleManager.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "QualityControl"
+      ]
+    }
+  }
+}

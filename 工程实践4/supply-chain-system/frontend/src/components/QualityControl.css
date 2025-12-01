@@ -1,0 +1,156 @@
+.quality-control {
+  padding: 20px 0;
+}
+
+.quality-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.quality-container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 20px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.radio-label:hover {
+  background: #e9ecef;
+}
+
+.radio-label input[type="radio"]:checked + svg {
+  animation: pulse 0.3s;
+}
+
+.radio-label input[type="radio"] {
+  display: none;
+}
+
+.radio-label input[type="radio"]:checked ~ span {
+  font-weight: 700;
+}
+
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.report-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #11998e;
+  transition: transform 0.2s;
+}
+
+.report-card:hover {
+  transform: translateX(5px);
+}
+
+.report-card.failed {
+  border-left-color: #eb3349;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.report-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.status-text.passed {
+  color: #11998e;
+}
+
+.status-text.failed {
+  color: #eb3349;
+}
+
+.report-number {
+  padding: 6px 14px;
+  background: white;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.report-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.report-field {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.report-field strong {
+  color: #333;
+  min-width: 80px;
+}
+
+.address-text {
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+}
+
+.report-comments {
+  margin-top: 10px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+.report-comments strong {
+  display: block;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.report-comments p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .quality-container {
+    grid-template-columns: 1fr;
+  }
+}

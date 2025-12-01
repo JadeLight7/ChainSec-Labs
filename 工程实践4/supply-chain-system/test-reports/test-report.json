@@ -1,0 +1,921 @@
+{
+  "metadata": {
+    "projectName": "区块链供应链溯源系统",
+    "version": "1.0.0",
+    "generatedAt": "2025-12-01T08:13:00.249Z",
+    "generatedAtLocal": "2025/12/1 16:13:00",
+    "testFramework": "Hardhat + Mocha + Chai",
+    "solcVersion": "0.8.19",
+    "network": "Hardhat Local Network",
+    "chainId": 1337,
+    "nodeVersion": "v23.11.0"
+  },
+  "summary": {
+    "totalTests": 25,
+    "passed": 25,
+    "failed": 0,
+    "warnings": 0,
+    "totalDuration": 511,
+    "averageDuration": "20.44",
+    "totalGasUsed": 4108610
+  },
+  "testsByCategory": {
+    "unitTests": {
+      "RoleManager": [
+        {
+          "suite": "单元测试-RoleManager",
+          "test": "初始化管理员角色",
+          "status": "passed",
+          "duration": 0,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.075Z",
+          "details": {
+            "adminAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+            "hasAdminRole": true
+          }
+        },
+        {
+          "suite": "单元测试-RoleManager",
+          "test": "授予制造商角色",
+          "status": "passed",
+          "duration": 2,
+          "gasUsed": 50576,
+          "timestamp": "2025-12-01T08:13:00.078Z",
+          "details": {
+            "userAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+            "role": "MANUFACTURER",
+            "gasUsed": 50576,
+            "transactionHash": "0x144a7bc2acb0be87a534c01d9f1c16d993001d01b4de91a9b104cfc2d9961466"
+          }
+        },
+        {
+          "suite": "单元测试-RoleManager",
+          "test": "权限控制验证",
+          "status": "passed",
+          "duration": 6,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.085Z",
+          "details": {
+            "expectedBehavior": "应该拒绝非管理员授权",
+            "actualBehavior": "正确拒绝",
+            "errorMessage": "VM Exception while processing transaction: reverted with reason string 'Only admin can grant roles'"
+          }
+        },
+        {
+          "suite": "单元测试-RoleManager",
+          "test": "撤销角色功能",
+          "status": "passed",
+          "duration": 3,
+          "gasUsed": 26516,
+          "timestamp": "2025-12-01T08:13:00.088Z",
+          "details": {
+            "userAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+            "roleRevoked": true,
+            "gasUsed": 26516
+          }
+        },
+        {
+          "suite": "单元测试-RoleManager",
+          "test": "用户计数统计",
+          "status": "passed",
+          "duration": 0,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.088Z",
+          "details": {
+            "totalUsers": 5,
+            "expectedMinimum": 5
+          }
+        }
+      ],
+      "ProductRegistry": [
+        {
+          "suite": "单元测试-ProductRegistry",
+          "test": "注册产品功能",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 234382,
+          "timestamp": "2025-12-01T08:13:00.091Z",
+          "details": {
+            "productName": "有机苹果",
+            "category": "水果",
+            "productId": 1,
+            "gasUsed": 234382,
+            "transactionHash": "0x85b70ee0149c8b0245c08411ce99a5acf600ac181ecb40059694b389386835a1"
+          }
+        },
+        {
+          "suite": "单元测试-ProductRegistry",
+          "test": "查询产品信息",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.092Z",
+          "details": {
+            "productId": 1,
+            "productName": "有机苹果",
+            "category": "水果",
+            "manufacturer": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+            "exists": true
+          }
+        },
+        {
+          "suite": "单元测试-ProductRegistry",
+          "test": "非制造商权限限制",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.093Z",
+          "details": {
+            "expectedBehavior": "应该拒绝非制造商注册",
+            "actualBehavior": "正确拒绝",
+            "unauthorizedUser": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+            "errorMessage": "VM Exception while processing transaction: reverted with reason string 'Only manufacturers can regis"
+          }
+        },
+        {
+          "suite": "单元测试-ProductRegistry",
+          "test": "批量注册性能测试",
+          "status": "passed",
+          "duration": 5,
+          "gasUsed": 203301,
+          "timestamp": "2025-12-01T08:13:00.098Z",
+          "details": {
+            "batchSize": 10,
+            "totalDuration": 5,
+            "averageDuration": "0.50ms",
+            "averageGas": 203301,
+            "minGas": 200182,
+            "maxGas": 234382
+          }
+        },
+        {
+          "suite": "单元测试-ProductRegistry",
+          "test": "获取产品ID列表",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.099Z",
+          "details": {
+            "totalProducts": 11,
+            "productIds": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "showingFirst": 5
+          }
+        }
+      ],
+      "SupplyChain": [
+        {
+          "suite": "单元测试-SupplyChain",
+          "test": "添加生产阶段",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 122350,
+          "timestamp": "2025-12-01T08:13:00.103Z",
+          "details": {
+            "productId": 12,
+            "stage": "Manufactured",
+            "location": "北京工厂",
+            "actor": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+            "gasUsed": 122350,
+            "totalSteps": 1
+          }
+        },
+        {
+          "suite": "单元测试-SupplyChain",
+          "test": "添加运输阶段",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 105399,
+          "timestamp": "2025-12-01T08:13:00.105Z",
+          "details": {
+            "productId": 12,
+            "stage": "InTransit",
+            "location": "上海仓库",
+            "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+            "gasUsed": 105399
+          }
+        },
+        {
+          "suite": "单元测试-SupplyChain",
+          "test": "添加配送阶段",
+          "status": "passed",
+          "duration": 0,
+          "gasUsed": 105520,
+          "timestamp": "2025-12-01T08:13:00.105Z",
+          "details": {
+            "productId": 12,
+            "stage": "Delivered",
+            "location": "广州配送中心",
+            "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+            "gasUsed": 105520
+          }
+        },
+        {
+          "suite": "单元测试-SupplyChain",
+          "test": "查询供应链完整信息",
+          "status": "passed",
+          "duration": 0,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.106Z",
+          "details": {
+            "productId": 12,
+            "totalSteps": 3,
+            "steps": [
+              {
+                "stepNumber": 1,
+                "stage": "Manufactured",
+                "location": "北京工厂",
+                "actor": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+              },
+              {
+                "stepNumber": 2,
+                "stage": "InTransit",
+                "location": "上海仓库",
+                "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+              },
+              {
+                "stepNumber": 3,
+                "stage": "Delivered",
+                "location": "广州配送中心",
+                "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+              }
+            ],
+            "averageGasPerStep": 111090
+          }
+        }
+      ],
+      "QualityControl": [
+        {
+          "suite": "单元测试-QualityControl",
+          "test": "添加合格质检报告",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 188684,
+          "timestamp": "2025-12-01T08:13:00.108Z",
+          "details": {
+            "productId": 13,
+            "passed": true,
+            "comments": "质量优秀，符合标准",
+            "inspector": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "gasUsed": 188684,
+            "totalReports": 1
+          }
+        },
+        {
+          "suite": "单元测试-QualityControl",
+          "test": "添加不合格质检报告",
+          "status": "passed",
+          "duration": 1,
+          "gasUsed": 149278,
+          "timestamp": "2025-12-01T08:13:00.110Z",
+          "details": {
+            "productId": 14,
+            "passed": false,
+            "comments": "需要改进包装",
+            "inspector": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+            "gasUsed": 149278
+          }
+        },
+        {
+          "suite": "单元测试-QualityControl",
+          "test": "计算合格率统计",
+          "status": "passed",
+          "duration": 0,
+          "gasUsed": 0,
+          "timestamp": "2025-12-01T08:13:00.110Z",
+          "details": {
+            "totalReports": 2,
+            "passedReports": 1,
+            "failedReports": 1,
+            "passRate": "50%",
+            "calculatedPassRate": "50.00%"
+          }
+        },
+        {
+          "suite": "单元测试-QualityControl",
+          "test": "批量质检性能测试",
+          "status": "passed",
+          "duration": 5,
+          "gasUsed": 157101,
+          "timestamp": "2025-12-01T08:13:00.116Z",
+          "details": {
+            "batchSize": 5,
+            "totalDuration": 5,
+            "averageDuration": "1.00ms",
+            "averageGas": 157101,
+            "minGas": 149278,
+            "maxGas": 188684
+          }
+        }
+      ]
+    },
+    "integrationTests": [
+      {
+        "suite": "集成测试-完整流程",
+        "test": "产品完整生命周期追踪",
+        "status": "passed",
+        "duration": 3,
+        "gasUsed": 0,
+        "timestamp": "2025-12-01T08:13:00.119Z",
+        "details": {
+          "productId": 20,
+          "productName": "集成测试产品",
+          "supplyChainSteps": 4,
+          "qualityReports": 1,
+          "lifecycle": [
+            {
+              "stage": "注册",
+              "location": "系统",
+              "actor": "制造商"
+            },
+            {
+              "stage": "生产",
+              "location": "成都生产基地",
+              "actor": "制造商"
+            },
+            {
+              "stage": "运输",
+              "location": "重庆物流中心",
+              "actor": "分销商"
+            },
+            {
+              "stage": "配送",
+              "location": "昆明配送站",
+              "actor": "分销商"
+            },
+            {
+              "stage": "销售",
+              "location": "西安超市",
+              "actor": "零售商"
+            },
+            {
+              "stage": "质检",
+              "result": "合格",
+              "inspector": "质检员"
+            }
+          ]
+        }
+      },
+      {
+        "suite": "集成测试-并发处理",
+        "test": "多产品并发处理能力",
+        "status": "passed",
+        "duration": 14,
+        "gasUsed": 0,
+        "timestamp": "2025-12-01T08:13:00.134Z",
+        "details": {
+          "concurrentProducts": 10,
+          "totalDuration": 14,
+          "averageTimePerProduct": "1.40ms",
+          "totalProductsInSystem": 30,
+          "throughput": "714.29 products/s"
+        }
+      },
+      {
+        "suite": "集成测试-数据一致性",
+        "test": "跨合约数据一致性",
+        "status": "passed",
+        "duration": 1,
+        "gasUsed": 0,
+        "timestamp": "2025-12-01T08:13:00.136Z",
+        "details": {
+          "productId": 31,
+          "productExists": true,
+          "hasSupplyChainData": true,
+          "hasQualityData": true,
+          "dataConsistency": "verified",
+          "manufacturer": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+        }
+      }
+    ],
+    "performanceTests": [
+      {
+        "suite": "性能测试-部署",
+        "test": "合约部署Gas消耗分析",
+        "status": "passed",
+        "duration": 9,
+        "gasUsed": 2565298,
+        "timestamp": "2025-12-01T08:13:00.146Z",
+        "details": {
+          "RoleManager": 444692,
+          "ProductRegistry": 748544,
+          "SupplyChain": 710600,
+          "QualityControl": 661462,
+          "total": 2565298
+        }
+      },
+      {
+        "suite": "性能测试-函数调用",
+        "test": "各函数Gas消耗统计",
+        "status": "passed",
+        "duration": 30,
+        "gasUsed": 0,
+        "timestamp": "2025-12-01T08:13:00.203Z",
+        "details": {
+          "registerProduct": {
+            "avg": 200194,
+            "min": 200194,
+            "max": 200194
+          },
+          "addStep": {
+            "avg": 122290,
+            "min": 122290,
+            "max": 122290
+          },
+          "addReport": {
+            "avg": 154244,
+            "min": 154244,
+            "max": 154244
+          },
+          "grantRole": {
+            "avg": 70288,
+            "min": 30676,
+            "max": 97962
+          }
+        }
+      },
+      {
+        "suite": "性能测试-压力测试",
+        "test": "系统负载能力测试",
+        "status": "passed",
+        "duration": 46,
+        "gasUsed": 200205,
+        "timestamp": "2025-12-01T08:13:00.249Z",
+        "details": {
+          "totalAttempts": 100,
+          "successful": 100,
+          "failed": 0,
+          "successRate": "100.00%",
+          "totalDuration": 46,
+          "throughput": "2173.91 ops/s",
+          "totalGasUsed": 20020480,
+          "averageGas": 200205,
+          "minGas": 200194,
+          "maxGas": 200206
+        }
+      }
+    ]
+  },
+  "allTests": [
+    {
+      "suite": "系统初始化",
+      "test": "部署所有合约",
+      "status": "passed",
+      "duration": 17,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.074Z"
+    },
+    {
+      "suite": "单元测试-RoleManager",
+      "test": "初始化管理员角色",
+      "status": "passed",
+      "duration": 0,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.075Z",
+      "details": {
+        "adminAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "hasAdminRole": true
+      }
+    },
+    {
+      "suite": "单元测试-RoleManager",
+      "test": "授予制造商角色",
+      "status": "passed",
+      "duration": 2,
+      "gasUsed": 50576,
+      "timestamp": "2025-12-01T08:13:00.078Z",
+      "details": {
+        "userAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "role": "MANUFACTURER",
+        "gasUsed": 50576,
+        "transactionHash": "0x144a7bc2acb0be87a534c01d9f1c16d993001d01b4de91a9b104cfc2d9961466"
+      }
+    },
+    {
+      "suite": "单元测试-RoleManager",
+      "test": "权限控制验证",
+      "status": "passed",
+      "duration": 6,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.085Z",
+      "details": {
+        "expectedBehavior": "应该拒绝非管理员授权",
+        "actualBehavior": "正确拒绝",
+        "errorMessage": "VM Exception while processing transaction: reverted with reason string 'Only admin can grant roles'"
+      }
+    },
+    {
+      "suite": "单元测试-RoleManager",
+      "test": "撤销角色功能",
+      "status": "passed",
+      "duration": 3,
+      "gasUsed": 26516,
+      "timestamp": "2025-12-01T08:13:00.088Z",
+      "details": {
+        "userAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "roleRevoked": true,
+        "gasUsed": 26516
+      }
+    },
+    {
+      "suite": "单元测试-RoleManager",
+      "test": "用户计数统计",
+      "status": "passed",
+      "duration": 0,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.088Z",
+      "details": {
+        "totalUsers": 5,
+        "expectedMinimum": 5
+      }
+    },
+    {
+      "suite": "单元测试-ProductRegistry",
+      "test": "注册产品功能",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 234382,
+      "timestamp": "2025-12-01T08:13:00.091Z",
+      "details": {
+        "productName": "有机苹果",
+        "category": "水果",
+        "productId": 1,
+        "gasUsed": 234382,
+        "transactionHash": "0x85b70ee0149c8b0245c08411ce99a5acf600ac181ecb40059694b389386835a1"
+      }
+    },
+    {
+      "suite": "单元测试-ProductRegistry",
+      "test": "查询产品信息",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.092Z",
+      "details": {
+        "productId": 1,
+        "productName": "有机苹果",
+        "category": "水果",
+        "manufacturer": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "exists": true
+      }
+    },
+    {
+      "suite": "单元测试-ProductRegistry",
+      "test": "非制造商权限限制",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.093Z",
+      "details": {
+        "expectedBehavior": "应该拒绝非制造商注册",
+        "actualBehavior": "正确拒绝",
+        "unauthorizedUser": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+        "errorMessage": "VM Exception while processing transaction: reverted with reason string 'Only manufacturers can regis"
+      }
+    },
+    {
+      "suite": "单元测试-ProductRegistry",
+      "test": "批量注册性能测试",
+      "status": "passed",
+      "duration": 5,
+      "gasUsed": 203301,
+      "timestamp": "2025-12-01T08:13:00.098Z",
+      "details": {
+        "batchSize": 10,
+        "totalDuration": 5,
+        "averageDuration": "0.50ms",
+        "averageGas": 203301,
+        "minGas": 200182,
+        "maxGas": 234382
+      }
+    },
+    {
+      "suite": "单元测试-ProductRegistry",
+      "test": "获取产品ID列表",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.099Z",
+      "details": {
+        "totalProducts": 11,
+        "productIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "showingFirst": 5
+      }
+    },
+    {
+      "suite": "单元测试-SupplyChain",
+      "test": "添加生产阶段",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 122350,
+      "timestamp": "2025-12-01T08:13:00.103Z",
+      "details": {
+        "productId": 12,
+        "stage": "Manufactured",
+        "location": "北京工厂",
+        "actor": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+        "gasUsed": 122350,
+        "totalSteps": 1
+      }
+    },
+    {
+      "suite": "单元测试-SupplyChain",
+      "test": "添加运输阶段",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 105399,
+      "timestamp": "2025-12-01T08:13:00.105Z",
+      "details": {
+        "productId": 12,
+        "stage": "InTransit",
+        "location": "上海仓库",
+        "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+        "gasUsed": 105399
+      }
+    },
+    {
+      "suite": "单元测试-SupplyChain",
+      "test": "添加配送阶段",
+      "status": "passed",
+      "duration": 0,
+      "gasUsed": 105520,
+      "timestamp": "2025-12-01T08:13:00.105Z",
+      "details": {
+        "productId": 12,
+        "stage": "Delivered",
+        "location": "广州配送中心",
+        "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+        "gasUsed": 105520
+      }
+    },
+    {
+      "suite": "单元测试-SupplyChain",
+      "test": "查询供应链完整信息",
+      "status": "passed",
+      "duration": 0,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.106Z",
+      "details": {
+        "productId": 12,
+        "totalSteps": 3,
+        "steps": [
+          {
+            "stepNumber": 1,
+            "stage": "Manufactured",
+            "location": "北京工厂",
+            "actor": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+          },
+          {
+            "stepNumber": 2,
+            "stage": "InTransit",
+            "location": "上海仓库",
+            "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+          },
+          {
+            "stepNumber": 3,
+            "stage": "Delivered",
+            "location": "广州配送中心",
+            "actor": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+          }
+        ],
+        "averageGasPerStep": 111090
+      }
+    },
+    {
+      "suite": "单元测试-QualityControl",
+      "test": "添加合格质检报告",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 188684,
+      "timestamp": "2025-12-01T08:13:00.108Z",
+      "details": {
+        "productId": 13,
+        "passed": true,
+        "comments": "质量优秀，符合标准",
+        "inspector": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "gasUsed": 188684,
+        "totalReports": 1
+      }
+    },
+    {
+      "suite": "单元测试-QualityControl",
+      "test": "添加不合格质检报告",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 149278,
+      "timestamp": "2025-12-01T08:13:00.110Z",
+      "details": {
+        "productId": 14,
+        "passed": false,
+        "comments": "需要改进包装",
+        "inspector": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+        "gasUsed": 149278
+      }
+    },
+    {
+      "suite": "单元测试-QualityControl",
+      "test": "计算合格率统计",
+      "status": "passed",
+      "duration": 0,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.110Z",
+      "details": {
+        "totalReports": 2,
+        "passedReports": 1,
+        "failedReports": 1,
+        "passRate": "50%",
+        "calculatedPassRate": "50.00%"
+      }
+    },
+    {
+      "suite": "单元测试-QualityControl",
+      "test": "批量质检性能测试",
+      "status": "passed",
+      "duration": 5,
+      "gasUsed": 157101,
+      "timestamp": "2025-12-01T08:13:00.116Z",
+      "details": {
+        "batchSize": 5,
+        "totalDuration": 5,
+        "averageDuration": "1.00ms",
+        "averageGas": 157101,
+        "minGas": 149278,
+        "maxGas": 188684
+      }
+    },
+    {
+      "suite": "集成测试-完整流程",
+      "test": "产品完整生命周期追踪",
+      "status": "passed",
+      "duration": 3,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.119Z",
+      "details": {
+        "productId": 20,
+        "productName": "集成测试产品",
+        "supplyChainSteps": 4,
+        "qualityReports": 1,
+        "lifecycle": [
+          {
+            "stage": "注册",
+            "location": "系统",
+            "actor": "制造商"
+          },
+          {
+            "stage": "生产",
+            "location": "成都生产基地",
+            "actor": "制造商"
+          },
+          {
+            "stage": "运输",
+            "location": "重庆物流中心",
+            "actor": "分销商"
+          },
+          {
+            "stage": "配送",
+            "location": "昆明配送站",
+            "actor": "分销商"
+          },
+          {
+            "stage": "销售",
+            "location": "西安超市",
+            "actor": "零售商"
+          },
+          {
+            "stage": "质检",
+            "result": "合格",
+            "inspector": "质检员"
+          }
+        ]
+      }
+    },
+    {
+      "suite": "集成测试-并发处理",
+      "test": "多产品并发处理能力",
+      "status": "passed",
+      "duration": 14,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.134Z",
+      "details": {
+        "concurrentProducts": 10,
+        "totalDuration": 14,
+        "averageTimePerProduct": "1.40ms",
+        "totalProductsInSystem": 30,
+        "throughput": "714.29 products/s"
+      }
+    },
+    {
+      "suite": "集成测试-数据一致性",
+      "test": "跨合约数据一致性",
+      "status": "passed",
+      "duration": 1,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.136Z",
+      "details": {
+        "productId": 31,
+        "productExists": true,
+        "hasSupplyChainData": true,
+        "hasQualityData": true,
+        "dataConsistency": "verified",
+        "manufacturer": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+      }
+    },
+    {
+      "suite": "性能测试-部署",
+      "test": "合约部署Gas消耗分析",
+      "status": "passed",
+      "duration": 9,
+      "gasUsed": 2565298,
+      "timestamp": "2025-12-01T08:13:00.146Z",
+      "details": {
+        "RoleManager": 444692,
+        "ProductRegistry": 748544,
+        "SupplyChain": 710600,
+        "QualityControl": 661462,
+        "total": 2565298
+      }
+    },
+    {
+      "suite": "性能测试-函数调用",
+      "test": "各函数Gas消耗统计",
+      "status": "passed",
+      "duration": 30,
+      "gasUsed": 0,
+      "timestamp": "2025-12-01T08:13:00.203Z",
+      "details": {
+        "registerProduct": {
+          "avg": 200194,
+          "min": 200194,
+          "max": 200194
+        },
+        "addStep": {
+          "avg": 122290,
+          "min": 122290,
+          "max": 122290
+        },
+        "addReport": {
+          "avg": 154244,
+          "min": 154244,
+          "max": 154244
+        },
+        "grantRole": {
+          "avg": 70288,
+          "min": 30676,
+          "max": 97962
+        }
+      }
+    },
+    {
+      "suite": "性能测试-压力测试",
+      "test": "系统负载能力测试",
+      "status": "passed",
+      "duration": 46,
+      "gasUsed": 200205,
+      "timestamp": "2025-12-01T08:13:00.249Z",
+      "details": {
+        "totalAttempts": 100,
+        "successful": 100,
+        "failed": 0,
+        "successRate": "100.00%",
+        "totalDuration": 46,
+        "throughput": "2173.91 ops/s",
+        "totalGasUsed": 20020480,
+        "averageGas": 200205,
+        "minGas": 200194,
+        "maxGas": 200206
+      }
+    }
+  ],
+  "contracts": {
+    "roleManager": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "productRegistry": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "supplyChain": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "qualityControl": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
+  },
+  "gasStatistics": {
+    "deployment": {
+      "RoleManager": 444692,
+      "ProductRegistry": 748544,
+      "SupplyChain": 710600,
+      "QualityControl": 661462,
+      "total": 2565298
+    }
+  },
+  "performance": {
+    "averageTestDuration": "20.44ms",
+    "totalExecutionTime": "511ms",
+    "testsPerSecond": "48.92"
+  },
+  "recommendations": []
+}
