@@ -179,9 +179,4 @@ MIT License
 👥 贡献
 欢迎提交 Issue 和 Pull Request!
 
-📞 联系方式
-如有问题，请通过以下方式联系：
-
-Email: your-email@example.com
-GitHub: https://github.com/yourusername
 注意: 这是一个演示项目，不适合直接用于生产环境。在生产环境使用前，请进行充分的安全审计和测试。
